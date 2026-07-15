@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serverless Student Feedback Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🎓 Serverless Student Feedback Management System</h1>
+
+        <p class="subtitle">
+            Submit your valuable feedback to help improve learning experiences.
+        </p>
+
+        <form id="feedbackForm">
+
+            <div class="form-group">
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="collegeName">College Name</label>
+                <input type="text" id="collegeName" placeholder="Enter your college name" required>
+            </div>
+
+            <div class="form-group">
+    <label for="rollNumber">College Roll Number</label>
+    <input
+        type="text"
+        id="rollNumber"
+        maxlength="12"
+        pattern="[A-Za-z0-9]{1,12}"
+        placeholder="Enter your college roll number"
+        title="Roll Number can contain only letters and numbers (Maximum 12 characters)"
+        required>
+</div>
+
+            <div class="form-group">
+                <label for="email">Registered Email ID</label>
+                <input type="email" id="email" placeholder="Enter your registered email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+
+                <select id="subject" required>
+
+                    <option value="">Select Subject</option>
+
+                    <option>Cloud Computing</option>
+
+                    <option>Mobile Application Development</option>
+
+                    <option>Data Analytics</option>
+
+                    <option>Full Stack Development</option>
+
+                    <option>Machine Learning</option>
+
+                    <option>Agentic AI</option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="rating">Rating</label>
+
+                <select id="rating" required>
+
+                    <option value="">Give Rating</option>
+
+                    <option value="1">⭐ 1 - Poor</option>
+
+                    <option value="2">⭐⭐ 2 - Fair</option>
+
+                    <option value="3">⭐⭐⭐ 3 - Good</option>
+
+                    <option value="4">⭐⭐⭐⭐ 4 - Very Good</option>
+
+                    <option value="5">⭐⭐⭐⭐⭐ 5 - Excellent</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="comments">Comments</label>
+
+                <textarea
+                    id="comments"
+                    rows="5"
+                    placeholder="Write your feedback here..."
+                    required></textarea>
+
+            </div>
+
+            <button type="submit">
+                Submit Feedback
+            </button>
+
+        </form>
+
+        <div id="message"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

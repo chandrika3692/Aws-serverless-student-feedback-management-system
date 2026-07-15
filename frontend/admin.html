@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Student Feedback Management System</title>
+
+    <link rel="stylesheet" href="admin.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Chart JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header>
+
+    <div class="logo">
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+        <div>
+
+            <h2>Student Feedback Management System</h2>
+
+            <p>Admin Dashboard</p>
+
+        </div>
+
+    </div>
+
+    <button id="logoutBtn" class="logout-btn">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Logout
+
+    </button>
+
+</header>
+
+    <!-- ================= MAIN CONTAINER ================= -->
+
+    <div class="container">
+
+        <!-- ================= DASHBOARD CARDS ================= -->
+
+        <section class="dashboard-cards">
+
+            <div class="card">
+
+                <div class="icon blue">
+
+                    <i class="fa-solid fa-users"></i>
+
+                </div>
+
+                <div>
+
+                    <h3 id="totalFeedback">0</h3>
+
+                    <p>Total Feedback</p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon green">
+
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+
+                <div>
+
+                    <h3 id="averageRating">0</h3>
+
+                    <p>Average Rating</p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon orange">
+
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+
+                </div>
+
+                <div>
+
+                    <h3 id="highestRating">0</h3>
+
+                    <p>Highest Rating</p>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon red">
+
+                    <i class="fa-solid fa-arrow-trend-down"></i>
+
+                </div>
+
+                <div>
+
+                    <h3 id="lowestRating">0</h3>
+
+                    <p>Lowest Rating</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= FILTER SECTION ================= -->
+
+        <section class="filters">
+
+            <input
+                type="text"
+                id="searchName"
+                placeholder="Search by Student Name">
+
+            <input
+                type="text"
+                id="searchRoll"
+                placeholder="Search by Roll Number">
+
+            <select id="subjectFilter">
+
+                <option value="">All Subjects</option>
+
+                <option>Cloud Computing</option>
+
+                <option>Mobile Application Development</option>
+
+                <option>Data Analytics</option>
+
+                <option>Full Stack Development</option>
+
+                <option>Machine Learning</option>
+
+                <option>Agentic AI</option>
+
+            </select>
+
+            <select id="ratingFilter">
+
+                <option value="">All Ratings</option>
+
+                <option value="5">⭐⭐⭐⭐⭐</option>
+
+                <option value="4">⭐⭐⭐⭐</option>
+
+                <option value="3">⭐⭐⭐</option>
+
+                <option value="2">⭐⭐</option>
+
+                <option value="1">⭐</option>
+
+            </select>
+
+        </section>
+
+        <!-- ================= ACTION BUTTONS ================= -->
+
+        <section class="actions">
+
+            <button id="refreshBtn">
+
+                <i class="fa-solid fa-rotate-right"></i>
+
+                Refresh
+
+            </button>
+
+            <button id="exportBtn">
+
+                <i class="fa-solid fa-file-csv"></i>
+
+                Export CSV
+
+            </button>
+
+        </section>
+
+        <!-- ================= CHARTS ================= -->
+
+        <section class="charts">
+
+            <div class="chart-box">
+
+                <h3>
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    Subject-wise Feedback
+
+                </h3>
+
+                <canvas id="subjectChart"></canvas>
+
+            </div>
+
+            <div class="chart-box">
+
+                <h3>
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                    Rating Distribution
+
+                </h3>
+
+                <canvas id="ratingChart"></canvas>
+
+            </div>
+
+        </section>
+
+        <!-- ================= LOADING ================= -->
+
+        <div id="loading" class="loading">
+
+            <div class="spinner"></div>
+
+            <p>Loading Feedback...</p>
+
+        </div>
+
+        <!-- ================= NO DATA ================= -->
+
+        <div id="noData" class="no-data" style="display:none;">
+
+            <i class="fa-solid fa-circle-exclamation"></i>
+
+            <h2>No Feedback Found</h2>
+
+            <p>No records match your search criteria.</p>
+
+        </div>
+
+        <!-- ================= TABLE ================= -->
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>S.No</th>
+
+                        <th>Student Name</th>
+
+                        <th>College</th>
+
+                        <th>Roll Number</th>
+
+                        <th>Email</th>
+
+                        <th>Subject</th>
+
+                        <th>Rating</th>
+
+                        <th>Comments</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="feedbackTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
