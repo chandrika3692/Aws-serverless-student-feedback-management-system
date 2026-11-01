@@ -100,15 +100,15 @@ Only authenticated users can access feedback records and analytics.
 ## Live Demo
 
 Student Feedback Form:
-http://serverless-student-feedback-2026.s3-website-us-east-1.amazonaws.com/index.html
+http://student-feedback-system-2026.s3-website-us-east-1.amazonaws.com/
 
 Admin Login:
-http://serverless-student-feedback-2026.s3-website-us-east-1.amazonaws.com/login.html
+http://student-feedback-system-2026.s3-website-us-east-1.amazonaws.com/login.html
 
 Admin Dashboard (Protected)
 Direct link:
 
-http://serverless-student-feedback-2026.s3-website-us-east-1.amazonaws.com/admin.html
+http://student-feedback-system-2026.s3-website-us-east-1.amazonaws.com/admin.html
 
 Expected behavior:
 If logged in → Dashboard opens.
