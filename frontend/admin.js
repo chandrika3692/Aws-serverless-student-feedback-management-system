@@ -15,7 +15,7 @@ logoutBtn.addEventListener("click", () => {
 
 });
 const API_URL =
-"https://tv705ibvdh.execute-api.us-east-1.amazonaws.com/prod/feedback";
+"https://3662ldgwb6.execute-api.us-east-1.amazonaws.com/prod/feedback";
 
 // ---------------------- DOM --------------------------
 
